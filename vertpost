@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+    echo "vertpost: missing input operand"
+    exit 1
+fi
+
+input="$1"
+
+output=${input}
+
+index=1
+
+while [[ index -lt ${#input} ]];
+do
+    output="$output"$'\n'"${input:index:1}"
+    index=$index+1
+done
+
+echo "$output"
